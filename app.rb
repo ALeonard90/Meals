@@ -27,7 +27,7 @@ get '/' do
 	erb :index
 end
 
-get "/users" do
+get "/profile/" do
   if current_user?
     erb :profile
   else
@@ -43,7 +43,7 @@ post "/login" do
   user = User.find_by(:email => params[:email])
   if user && user.authenticate(params[:password])
     session[:user_id] = user.id
-    redirect('/users')
+    redirect('/profile')
   else
     @errors << "Invalid email or password. Try again!"
     erb :login
@@ -59,7 +59,7 @@ post '/signup' do
   if user.save
     session[:user_id] = user.id
     id = user.id
-    redirect('/users')
+    redirect('/profile')
   else
     @user = user
     erb :signup
@@ -70,7 +70,7 @@ post '/login' do
   @user = User.find_by(email: params[:email])
     if @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect("/users")  
+      redirect("/profile")  
     else
       @errors << "incorrect password or email"
       erb :login

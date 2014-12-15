@@ -1,11 +1,10 @@
 class CreateMeals < ActiveRecord::Migration
   def change
   	create_table :meals do |t|
-  	  t.text :name, null: false
-  	  t.text :will_feed, null: false
-  	  t.text :pickup_date, null: false
-  	  t.text :pickup_time, null: false
-  	  t.text :pickup_location, null: false
-  	  
+  	  t.string :name, null: false
+  	  t.integer :will_feed, null: false
+  	  t.datetime :pickup_time
+  	  t.string :pickup_location, null: false
+  	end 
   end
 end
