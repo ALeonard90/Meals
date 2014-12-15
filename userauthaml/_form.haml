@@ -1,0 +1,26 @@
+%form{:action => @actionUrl, :method => "post", :enctype => "multipart/form-data"}
+  %fieldset
+    %table
+      %tbody
+        %tr
+          %td
+            %label{:for => "email"} Email:
+            %input{:type => "text", :name => "email", :class => "text", :value => @user[:email]}
+        %tr
+          %td
+            %label{:for => "name"} Name:
+            %input{:type => "text", :name => "name", :class => "text", :value => @user[:name]}
+        %tr
+          %td
+            %label{:for => "phonenumber"} Phone Number:
+            %input{:type => "text", :phonenumber => "phonnumber", :class => "text", :value => @user[:phonenumber]}
+        %tr
+          %td
+            %label{:for => "password"} Password:
+            %input{:type => "password", :name => "password", :class => "text", :value => @user[:password]}
+        - if @password_confirmation
+          %tr
+            %td
+              %label{:for => "password_confirmation"} Password confirmation:
+              %input{:type => "password", :name => "password_confirmation", :class => "text"}
+    %input{:type => "submit", :value => "Send", :class => "button"}
