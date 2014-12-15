@@ -27,13 +27,18 @@ get '/' do
 	erb :index
 end
 
-get "/profile/" do
+get '/profile' do
   if current_user?
     erb :profile
   else
     redirect('/login')
   end
 end
+
+post '/profile' do
+  meal = Meal.new(name: params["name"], will_feed: params["will_feed"], 
+    pickup_time: params["pickup_time"], pickup_location: params["pickup_location"])
+end 
 
 get '/login' do
   erb :login
@@ -55,7 +60,8 @@ get '/signup' do
 end
 
 post '/signup' do
-  user = User.new(name: params["name"], phonenumber: params["phonenumber"], email: params["email"], password: params["password"])
+  user = User.new(name: params["name"], phonenumber: params["phonenumber"], 
+    email: params["email"], password: params["password"])
   if user.save
     session[:user_id] = user.id
     id = user.id
