@@ -1,16 +1,27 @@
-class User < ActiveRecord::Base
+require 'bcrypt'
 
-	# validations
-	validates :name, presence: true
-	validate :phonenumber, presence: true
-	validates :email, presence: true, uniqueness: true
-	validates :password, presence: true
-	validates :password_confirmation, presence: true
+class User < ActiveRecord::Base
+	# attributes
+ 	attr_accessor :password
+
+  # callbacks
+  before_save :encrypt_password
 
 	# associations
 	has_many :meals
 
 	# methods
-	
+	def authenticate(password)
+		if BCrypt::Password.new(self.password_digest) == password
+  		return self
+    else
+    	return nil
+   	end
+	end
 
+  def encrypt_password
+    if password.present?
+      return self.password_digest = BCrypt::Password.create(password)
+    end
+  end
 end
