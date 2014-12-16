@@ -4,6 +4,8 @@ require 'sinatra/activerecord'
 
 require_relative './models/user'
 require_relative './models/meal'
+require_relative './models/greeting'
+require_relative './models/can'
 require_relative './config/environments'
 
 enable :sessions
@@ -45,7 +47,7 @@ get '/login' do
   erb :login
 end
 
-post "/login" do
+post '/login' do
   user = User.find_by(:email => params[:email])
   if user && user.authenticate(params[:password])
     session[:user_id] = user.id

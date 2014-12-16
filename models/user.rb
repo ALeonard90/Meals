@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
 	# associations
 	has_many :meals
+  has_many :cans
+  has_many :greetings
 
 	# methods
 	def authenticate(password)
