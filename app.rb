@@ -3,7 +3,7 @@ require 'sinatra/reloader'
 require 'sinatra/activerecord'
 
 require_relative './models/user'
-# require_relative './models/meal'
+require_relative './models/meal'
 require_relative './config/environments'
 
 enable :sessions
@@ -36,8 +36,9 @@ get '/profile' do
 end
 
 post '/profile' do
-  meal = Meal.new(name: params["name"], will_feed: params["will_feed"], 
+  meal = Meal.create(name: params["name"], will_feed: params["will_feed"], 
     pickup_time: params["pickup_time"], pickup_location: params["pickup_location"])
+    redirect('/thankyou')
 end 
 
 get '/login' do
@@ -82,6 +83,14 @@ post '/login' do
       erb :login
     end
 end
+
+get '/thankyou' do
+  if current_user?
+    erb :thankyou
+  else
+    redirect('/login')
+  end
+end 
 
 get "/logout" do
   session.clear

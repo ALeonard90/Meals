@@ -1,23 +1,23 @@
-<p>Welcome, <%= current_user.name%> and thank you for signing up.</p>
+<p>Welcome, <%= current_user.name%> and thank you for your generosity.</p>
 
-<form action="/create_meal" method="post">
+<form action="/profile" method="post">
 
   <label>Whatcha Making? :
-    <input type="text" name="name">
+    <input type="text" name="name" placeholder="Mac N Cheese" required>
   </label>
-
+<break>
   <label>How many people will your meal feed? :
-    <input type="integer" name="will_feed">
+    <input type="text" name="will_feed" placeholder="5" required>
   </label>
-
-  <label> Pickup Time:
-    <input type="datetime" name="pickup_time">
+<break>
+  <label> Pickup Date(Dec.20-Jan.4) / Time :
+    <input type="datetime-local" name="pickup_time" required>
 	</label>
-
+<break>
 	<label>Pickup Location:
-    <input type="text" name="pickup_location">
+    <input type="text" name="pickup_location" placeholder="1234 N 1st St" required>
 	</label>
 
-  <input type="submit" value="create event">
+  <input type="submit" value="Submit Meal">
 
 </form>
