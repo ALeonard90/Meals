@@ -1,0 +1,7 @@
+<h2> Deleting your canned donation will leave <%= @num_cans%> of your neighbors unnourished </h2>
+
+
+<form action='/cannedfood/delete/<%= @can_id %>' method='post'>
+	<input type="hidden" name="_method" value="delete">
+	<input type="submit" value="Delete :(">
+</form>

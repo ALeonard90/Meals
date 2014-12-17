@@ -5,7 +5,7 @@ class CreateCans < ActiveRecord::Migration
   	  t.string :container, null: false
   	  t.datetime :pickup_time
   	  t.string :pickup_location, null: false
-  	  t.integer :user_id, null:false
+  	  t.references :user, null:false
   	end 
   end
 end
