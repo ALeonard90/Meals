@@ -1,0 +1,22 @@
+<h2> Update Meal Donation: </h2>
+
+<form action="/meal/update/<%= @meal_to_edit.id %>" method="post">
+
+
+  <label>Whatcha Making? :</label>
+  <input type="text" name="edited_name" placeholder="<%=@meal_to_edit.name%>" required>
+
+  <label>How many people will your meal feed?:</label>
+  <input type="integer" name="edited_will_feed" placeholder="<%=@meal_to_edit.will_feed%>" required>
+  
+  <label> Pickup Time:</label>
+   <input type="datetime-local" name="pickup_time">
+	
+	<label>Pickup Location:</label>
+  <input type="text" name="edited_pickup_location" placeholder="<%=@meal_to_edit.pickup_location%>">
+	
+  <input type="submit" value="Submit Meal">
+
+</form>
+
+<a href="/profile/thankyou">Cancel</a>

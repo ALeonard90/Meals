@@ -1,23 +1,24 @@
-<h2> Update below: </h2>
+<h2> Update Canned Donation: </h2>
 
-<form action="/cannedfood/update/<%= @can_id %>" method="post">
+<form action="/cannedfood/update/<%= @can_to_edit.id %>" method="post">
 
-  <label>How many canned goods are you willing to part with? :
-    <input type="integer" name="num_cans" placeholder="4" required>
-  </label>
-<break>
-<label>Have something to put them in (Yes/No) ? :
-    <input type="text" name="container" placeholder="Yes" required>
-  </label>
-<break>
-  <label> Pickup Date(Dec.20-Jan.4) / Time :
-    <input type="datetime-local" name="pickup_time" required>
-	</label>
-<break>
-	<label>Pickup Location:
-    <input type="text" name="pickup_location" placeholder="1234 N 1st St" required>
-	</label>
+  <label>How many canned goods are you willing to part with? :</label>
+  <input type="integer" name="num_cans" placeholder="<%=@can_to_edit.num_cans%>">
+  
+
+  <label>Have something to put them in (Yes/No) ?:</label>
+  <input type="text" name="container" placeholder="<%=@can_to_edit.container%>">
+  
+
+  <label>Pickup Date(Dec.20-Jan.4) / Time :</label>
+  <input type="datetime-local" name="">
+
+
+	<label>Pickup Location:</label>
+  <input type="text" name="pickup_location" placeholder="<%=@can_to_edit.pickup_location%>">
 
   <input type="submit" value="Submit!">
 
 </form>
+
+<a href="/profile/thankyou">Cancel</a>

@@ -1,0 +1,8 @@
+<h2> Deleting your canned donation will leave your neighbors soul malnourished </h2>
+
+<form action='/greeting/delete>' method='post'>
+	<input type="hidden" name="_method" value="delete">
+	<input type="hidden" value="<%= @greeting_to_delete.id %>" name="greeting_to_delete_id">
+	<input type="submit" value="Delete :(">
+</form>
+<a href="/profile/thankyou">Cancel :D </a>

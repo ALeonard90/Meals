@@ -1,0 +1,10 @@
+<form action="/greeting/update/<%= @greeting_to_edit.id %>" method="post">
+
+  <label>What would you like to say?:</label>
+  <input class= "submission" type="text" name="body" placeholder="">
+
+  <input type="submit" value="Submit Greeting">
+
+</form>
+
+<a href="/profile/thankyou">Cancel</a>

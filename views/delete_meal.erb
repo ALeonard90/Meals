@@ -1,0 +1,8 @@
+<h2> Deleting your meal donation will leave your neighbors malnourished </h2>
+
+<form action='/meal/delete' method='post'>
+	<input type="hidden" name="_method" value="delete">
+	<input type="hidden" value="<%= @meal_to_delete.id %>" name="meal_to_delete.id">
+	<input type="submit" value="Delete :(">
+</form>
+<a href="/profile/thankyou">Cancel :D </a>

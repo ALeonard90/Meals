@@ -80,10 +80,36 @@ end
 post '/meal/create' do
   user = User.find(session[:user_id])
   meal = Meal.create(name: params["name"], will_feed: params["will_feed"], 
-                pickup_time: params["pickup_time"], pickup_location: params["pickup_location"], 
-                user_id: user.id)
+  pickup_time: params["pickup_time"], pickup_location: params["pickup_location"], 
+  user_id: user.id)
     redirect('/profile/thankyou')
 end
+
+get '/meal/update/:meal_id' do
+  @meal_to_edit = Meal.find(params["meal_id"])
+  erb :update_meal
+end 
+
+patch '/meal/update/:meal_id' do
+  @meal_to_edit = Meal.find(params["meal_id"])
+  @meal_to_edit.name = params[:name]
+  @meal_to_edit.will_feed = params[:will_feed]
+  @meal_to_edit.pickup_time = params[:pickup_time]
+  @meal_to_edit.pickup_location = params[:pickup_location]
+  redirect('/profile/thankyou')
+end
+
+get '/meal/delete/:meal_id' do
+  @meal_to_delete = Meal.find(params["meal_id"])
+  erb :delete_meal
+end
+
+delete '/meal/delete/:meal_id' do
+  @meal_to_delete = Meal.find(params["meal_id"])
+  @meal_to_delete.delete
+  redirect('/profile/thankyou') 
+end
+
 
 # Needs security
 get '/cannedfood/create' do
@@ -94,44 +120,42 @@ post '/cannedfood/create' do
   user = User.find(session[:user_id])
   can = Can.create(num_cans: params["num_cans"], container: params["container"], 
   pickup_time: params["pickup_time"], pickup_location: params["pickup_location"], 
-  user_id: params["user_id"])
+  user_id: user.id)
   redirect('/profile/thankyou')
 end
 
 # Needs security
 get '/cannedfood/update/:can_id' do
-  @can_id = params[:can_id]
-  @can = Can.find_by(id: params["can_id"])
+  @can_to_edit = Can.find(params["can_id"])
   erb :update_canned
 end
 
 # Needs security
-put '/cannedfood/update/:can_id' do
-  user = User.find(session[:user_id])
-  @can = Can.find_by(id: params["can_id"])
-  if @can.user_id == session[:user_id]
-        @can.num_cans = params[:num_cans]
-        @can.container = params[:container]
-        @can.pickup_time = params[:pickup_time]
-        @can.pickup_location = params[:pickup_location]
-        @can.save
-        redirect('/profile/thankyou')
-  else
-    @errors << "You gotta be signed in to edit a post."
-    redirect('/')
-  end
+patch '/cannedfood/update/:can_id' do
+  @can_to_edit = Can.find(params["can_id"])
+  @can_to_edit.num_cans = params[:num_cans]
+  @can_to_edit.container = params[:container]
+  @can_to_edit.pickup_time = params[:pickup_time]
+  @can_to_edit.pickup_location = params[:pickup_location]
+  @can_to_edit.save
+  redirect('/profile/thankyou')
 end
 
 # Needs security
 get '/cannedfood/delete/:can_id' do
-  @can_id = params[:can_id]
-  @post = Post.find_by(id: params["can_id"])
+  @can_to_delete = Can.find(params["can_id"])
   erb :delete_canned
+end
+
+delete '/cannedfood/delete/:can_id' do
+  @can = Can.find(params["can_id"])
+  @can_to_delete.delete
+  redirect('/profile/thankyou')
 end
 
 get '/greeting/create' do
   if current_user?
-    erb :greeting
+    erb :create_greeting
   else
     redirect('/login')
   end
@@ -139,12 +163,38 @@ end
 
 # Needs security
 post '/greeting/create' do
-  greeting = Greeting.create(body: params["body"], user_id: params["user_id"])
+  greeting = Greeting.create(body: params["body"], user_id: user.id)
   redirect('/profile/thankyou')
 end 
 
-get '/profile/thankyou' do
+get 'greeting/update/:greeting_id' do
+  @greeting_to_edit = Greeting.find(params["greeting_id"])
+  erb :update_greeting
+end
+
+patch 'greeting/update/:greeting_id' do
+  @greeting_to_edit = Greeting.find(params["greeting_id"])
+  @greeting_to_edit = params[:body]
+  redirect('/profile/thankyou')
+end
+
+get 'greeting/delete/:greeting_id' do
+  @greeting_to_delete = Greeting.find(params["greeting_id"])
+  erb :delete_greeting
+end
+
+delete 'greeting/delete/:greeting_id' do
+  @greeting_to_delete = Greeting.find(params["greeting_id"])
+  @greeting_to_delete.delete
   
+  redirect('/profile/thankyou')
+end
+
+get '/profile/thankyou' do
+  @user_meals = Meal.where(user_id: session[:user_id])
+  @user_cans = Can.where(user_id: session[:user_id])
+  @user_greetings = Greeting.where(user_id: session[:user_id])
+
   if current_user?
     erb :profty
   else
