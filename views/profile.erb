@@ -1,10 +1,12 @@
+<link rel="stylesheet" type="text/css" href="../css/index.css" />
+
 <h2>Welcome and Happy Holidays, <%= current_user.name%>! </h2>
 
 <div class ="usermeals">
 	<div class="createmeal">
 		<h2><a href='/meal/create'>Submit A Meal</a></h2>
 	</div>
-<h2>Previously Submitted Meals </h2>
+<h2>Previously Submitted Meals: </h2>
 	<% @user_meals.each do |m| %>
 	<div class ="meal">
 		<%= m.name %>
@@ -12,6 +14,7 @@
 		<%= m.pickup_time %>
 		<%= m.pickup_location %>
 	</div>
+	<% end %>
 </div>
 
 <div class ="usercans">
@@ -26,6 +29,7 @@
 		<%= c.pickup_time %>
 		<%= c.pickup_location %>
 	</div>
+	<% end %>
 </div>
 
 <div class ="usergreetings">
@@ -37,4 +41,5 @@
 <div class ="greeting">
 		<%= g.body %>
 	</div>
+	<% end %>
 </div>

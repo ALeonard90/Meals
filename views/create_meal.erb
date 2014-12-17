@@ -1,19 +1,19 @@
 <form action="/meal/create" method="post">
 
   <label>Whatcha Making? :
-    <input type="text" name="name">
+    <input type="text" name="name" placeholder="Mac N Cheese" required>
   </label>
 
   <label>How many people will your meal feed? :
-    <input type="integer" name="will_feed">
+    <input type="integer" name="will_feed" placeholder="5" required>
   </label>
 
   <label> Pickup Time:
-    <input type="datetime" name="pickup_time">
+    <input type="datetime-local" name="pickup_time">
 	</label>
 
 	<label>Pickup Location:
-    <input type="text" name="pickup_location">
+    <input type="text" name="pickup_location" placeholder="1234 N 1st St" required>
 	</label>
 
   <input type="submit" value="Submit Meal">

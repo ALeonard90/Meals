@@ -38,11 +38,10 @@ ActiveRecord::Schema.define(version: 20141216183629) do
   end
 
   create_table "users", force: true do |t|
-    t.string  "name",            null: false
-    t.string  "phonenumber",     null: false
-    t.text    "email",           null: false
-    t.text    "password_digest"
-    t.boolean "admin"
+    t.string "name",            null: false
+    t.string "phonenumber",     null: false
+    t.text   "email",           null: false
+    t.text   "password_digest"
   end
 
 end

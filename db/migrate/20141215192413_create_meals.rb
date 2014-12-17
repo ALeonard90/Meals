@@ -5,7 +5,7 @@ class CreateMeals < ActiveRecord::Migration
   	  t.integer :will_feed, null: false
   	  t.datetime :pickup_time
   	  t.string :pickup_location, null: false
-  	  t.references :user, null:false
+  	  t.belongs_to :user, null:false
   	end 
   end
 end

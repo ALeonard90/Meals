@@ -1,3 +1,44 @@
 <h2> Thanks again, <%= current_user.name%>! Be sure to click the "Thank You!" link below </h2>
+<div class ="usermeals">
+	<div class="createmeal">
+		<h2><a href='/meal/create'>Submit A Meal</a></h2>
+	</div>
+<h2>Previously Submitted Meals: </h2>
+	<% @user_meals.each do |m| %>
+	<div class ="meal">
+		<%= m.name %>
+		<%= m.will_feed %>
+		<%= m.pickup_time %>
+		<%= m.pickup_location %>
+	</div>
+	<% end %>
+</div>
+
+<div class ="usercans">
+	<div class="createcan">
+		<h2><a href='/cannedfood/create'>Make New Can Donation</a></h2>
+	</div>
+<h2>Previous Can Donations:</h2>
+	<% @user_cans.each do |c| %>
+	<div class ="can">
+		<%= c.num_cans %>
+		<%= c.container %>
+		<%= c.pickup_time %>
+		<%= c.pickup_location %>
+	</div>
+	<% end %>
+</div>
+
+<div class ="usergreetings">
+	<div class="createmeal">
+		<h2><a href='/greeting/create'>Compose a Holiday Greeting</a></h2>
+	</div>
+<h2>Greetings Submitted:</h2>
+<% @user_greetings.each do |g| %>
+<div class ="greeting">
+		<%= g.body %>
+	</div>
+	<% end %>
+</div>
 
 <button type="button"><a href="/thankyou">Thank You!</a></button>
