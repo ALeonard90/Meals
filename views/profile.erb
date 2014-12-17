@@ -13,11 +13,10 @@
 		<%= m.will_feed %>
 		<%= m.pickup_time %>
 		<%= m.pickup_location %>
+		<a href="/meal/update/<%=m.id%>">Update Meal Donation</a> 
+		<a href="/meal/delete">Delete Meal Donation</a>
 	</div>
 	<% end %>
-	<div class="meal_links">
-	<a href="/meal/update">Update Meal Donation</a> <a href="/meal/delete">Delete Meal Donation</a>
-	</div>
 </div>
 
 <div class ="usercans">
@@ -31,24 +30,23 @@
 		<%= c.container %>
 		<%= c.pickup_time %>
 		<%= c.pickup_location %>
+		<%= c.id %>
+		<a href="/cannedfood/update/<%=c.id%>">Update Donation</a>
+		<a href="/cannnedfood/delete/">Delete Can Donation</a> 
 	</div>
 	<% end %>
-	<div class="can_links">
-	<a href="/can/update">Update Can Donation</a> <a href="/can/delete">Delete Can Donation</a> 
-	</div>
 </div>
 
 <div class ="usergreetings">
 	<div class="createmeal">
-		<h2><a href='/greeting/create'>Compose a Holiday Greeting</a></h2>
+		<h2><a href="/greeting/create">Compose a Holiday Greeting</a></h2>
 	</div>
 <h2>Greetings Submitted:</h2>
 <% @user_greetings.each do |g| %>
-<div class ="greeting">
+	<div class ="greeting">
 		<%= g.body %>
+		<a href="/greeting/update/<%=g.id%>">Update Greeting</a> 
+		<a href="/greeting/update">Delete Greeting</a>
 	</div>
 	<% end %>
-	<div class="greeting_links">
-	<a href="/greeting/update">Update Greeting</a> <a href="/greeting/update">Delete Greeting</a>
-	</div>
 </div>
