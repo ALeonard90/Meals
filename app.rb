@@ -72,12 +72,18 @@ get '/profile' do
     end
 end
 
-post '/profile' do
+# Needs security
+get 'meal/create' do
+  erb :create_meal
+end
+
+post 'meal/create' do
   meal = Meal.create(name: params["name"], will_feed: params["will_feed"], 
     pickup_time: params["pickup_time"], pickup_location: params["pickup_location"])
-    redirect('/thankyou')
-end 
+    redirect('/profile/thankyou')
+end
 
+# Needs security
 get '/cannedfood/create' do
   erb :create_canned
 end 
@@ -88,12 +94,14 @@ post '/cannedfood/create' do
   redirect('/profile/thankyou')
 end
 
+# Needs security
 get '/cannedfood/update/:can_id' do
   @can_id = params[:can_id]
   @can = Can.find_by(id: params["can_id"])
   erb :update_canned
 end
 
+# Needs security
 put 'cannedfood/update/:can_id' do
   @can = Can.find_by(id: params["can_id"])
   if @can.user_id == session[:user_id]
@@ -109,6 +117,7 @@ put 'cannedfood/update/:can_id' do
   end
 end
 
+# Needs security
 get '/cannedfood/delete/:can_id' do
   @can_id = params[:can_id]
   @post = Post.find_by(id: params["can_id"])
@@ -123,6 +132,7 @@ get '/greeting/create' do
   end
 end 
 
+# Needs security
 post '/greeting/create' do
   greeting = Greeting.create(body: params["body"])
   redirect('/profile/thankyou')

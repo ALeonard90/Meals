@@ -1,6 +1,5 @@
 <h2>Welcome and Happy Holidays, <%= current_user.name%>! </h2>
 
-
 <div class ="usermeals">
 	<div class="createmeal">
 		<h2><a href='/meal/create'>Submit A Meal</a></h2>
@@ -31,11 +30,11 @@
 
 <div class ="usergreetings">
 	<div class="createmeal">
-		<h2><a href='/greeting'>Compose a Holiday Greeting</a></h2>
+		<h2><a href='/greeting/create'>Compose a Holiday Greeting</a></h2>
 	</div>
 <h2>Greetings Submitted:</h2>
 <% @user_greetings.each do |g| %>
-<div class ="agreeting">
+<div class ="greeting">
 		<%= g.body %>
 	</div>
 </div>
