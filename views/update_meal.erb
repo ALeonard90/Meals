@@ -1,7 +1,7 @@
 <h2> Update Meal Donation: </h2>
 
 <form action="/meal/update/<%= @meal_to_edit.id %>" method="post">
-
+<input type="hidden" name="_method" value="put">
 
   <label>Whatcha Making? :</label>
   <input type="text" name="edited_name" placeholder="<%=@meal_to_edit.name%>" required>
@@ -18,5 +18,4 @@
   <input type="submit" value="Submit Meal">
 
 </form>
-
 <a href="/profile/thankyou">Cancel</a>

@@ -10,6 +10,8 @@
 		<%= m.will_feed %>
 		<%= m.pickup_time %>
 		<%= m.pickup_location %>
+		<a href="/meal/update/<%=m.id%>">Update Meal Donation</a> 
+		<a href="/meal/delete">Delete Meal Donation</a>
 	</div>
 	<% end %>
 </div>
@@ -25,6 +27,8 @@
 		<%= c.container %>
 		<%= c.pickup_time %>
 		<%= c.pickup_location %>
+		<a href="/cannedfood/update/<%=c.id%>">Update Donation</a>
+		<a href="/cannnedfood/delete/">Delete Can Donation</a>
 	</div>
 	<% end %>
 </div>
@@ -37,6 +41,8 @@
 <% @user_greetings.each do |g| %>
 <div class ="greeting">
 		<%= g.body %>
+		<a href="/greeting/update/<%=g.id%>">Update Greeting</a> 
+		<a href="/greeting/update">Delete Greeting</a>
 	</div>
 	<% end %>
 </div>

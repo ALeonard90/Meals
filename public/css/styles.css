@@ -1,16 +1,35 @@
 body {
 	background-color: #A22C27;
+	border: 2px solid green;
 }
 
 h1{
 	color: #FDE0B7;
 	text-align: center;
+	font-size: 40px;
+}
+
+header{
+	
+}
+
+.welcome{
+	border: 2px solid blue;
+}
+
+.useremeals, .usercans, .usergreetings{
+
+}
+
+nav{
+
 }
 
 nav ul{
 	list-style: none;
 	padding: 0;
 	margin: 0;	
+	border: 2px solid teal;
 }
 
 nav ul li{
@@ -26,3 +45,4 @@ nav ul li a{
 	color: white;
 	text-decoration: none;
 }
+

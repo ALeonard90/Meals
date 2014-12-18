@@ -1,6 +1,7 @@
 <h2> Update Canned Donation: </h2>
 
 <form action="/cannedfood/update/<%= @can_to_edit.id %>" method="post">
+  <input type="hidden" name="_method" value= "put">
 
   <label>How many canned goods are you willing to part with? :</label>
   <input type="integer" name="num_cans" placeholder="<%=@can_to_edit.num_cans%>">
@@ -20,5 +21,8 @@
   <input type="submit" value="Submit!">
 
 </form>
-
 <a href="/profile/thankyou">Cancel</a>
+
+
+
+

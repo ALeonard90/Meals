@@ -34,8 +34,7 @@ get '/signup' do
 end
 
 post '/signup' do
-  user = User.new(name: params["name"], phonenumber: params["phonenumber"], 
-    email: params["email"], password: params["password"])
+  user = User.new(name: params["name"], phonenumber: params["phonenumber"], email: params["email"], password: params["password"])
   if user.save
     session[:user_id] = user.id
     id = user.id
@@ -79,9 +78,7 @@ end
 
 post '/meal/create' do
   user = User.find(session[:user_id])
-  meal = Meal.create(name: params["name"], will_feed: params["will_feed"], 
-  pickup_time: params["pickup_time"], pickup_location: params["pickup_location"], 
-  user_id: user.id)
+  meal = Meal.create(name: params["name"], will_feed: params["will_feed"], pickup_time: params["pickup_time"], pickup_location: params["pickup_location"], user_id: user.id)
     redirect('/profile/thankyou')
 end
 
@@ -90,12 +87,13 @@ get '/meal/update/:meal_id' do
   erb :update_meal
 end 
 
-patch '/meal/update/:meal_id' do
+put '/meal/update/:meal_id' do
   @meal_to_edit = Meal.find(params["meal_id"])
-  @meal_to_edit.name = params[:name]
-  @meal_to_edit.will_feed = params[:will_feed]
-  @meal_to_edit.pickup_time = params[:pickup_time]
-  @meal_to_edit.pickup_location = params[:pickup_location]
+  @meal_to_edit.name = params[:edited_name]
+  @meal_to_edit.will_feed = params[:edited_will_feed]
+  @meal_to_edit.pickup_time = params[:edited_pickup_time]
+  @meal_to_edit.pickup_location = params[:edited_pickup_location]
+  @meal_to_edit.save
   redirect('/profile/thankyou')
 end
 
@@ -118,9 +116,7 @@ end
 
 post '/cannedfood/create' do
   user = User.find(session[:user_id])
-  can = Can.create(num_cans: params["num_cans"], container: params["container"], 
-  pickup_time: params["pickup_time"], pickup_location: params["pickup_location"], 
-  user_id: user.id)
+  can = Can.create(num_cans: params["num_cans"], container: params["container"], pickup_time: params["pickup_time"], pickup_location: params["pickup_location"], user_id: user.id)
   redirect('/profile/thankyou')
 end
 
@@ -131,7 +127,7 @@ get '/cannedfood/update/:can_id' do
 end
 
 # Needs security
-patch '/cannedfood/update/:can_id' do
+put '/cannedfood/update/:can_id' do
   @can_to_edit = Can.find(params["can_id"])
   @can_to_edit.num_cans = params[:num_cans]
   @can_to_edit.container = params[:container]
@@ -172,7 +168,7 @@ get 'greeting/update/:greeting_id' do
   erb :update_greeting
 end
 
-patch 'greeting/update/:greeting_id' do
+put 'greeting/update/:greeting_id' do
   @greeting_to_edit = Greeting.find(params["greeting_id"])
   @greeting_to_edit = params[:body]
   redirect('/profile/thankyou')
@@ -183,9 +179,9 @@ get 'greeting/delete/:greeting_id' do
   erb :delete_greeting
 end
 
-delete 'greeting/delete/:greeting_id' do
+delete 'greeting/delete/' do
   @greeting_to_delete = Greeting.find(params["greeting_id"])
-  @greeting_to_delete.delete
+  @greeting_to_delete.destroy
   
   redirect('/profile/thankyou')
 end
