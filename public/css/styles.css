@@ -1,16 +1,13 @@
 body {
 	background-color: #A22C27;
 	border: 2px solid green;
+	font-family: 'Open Sans', sans-serif;
 }
 
-h1{
-	color: #FDE0B7;
-	text-align: center;
-	font-size: 40px;
-}
-
-header{
-	
+.clear-header{
+	display: block;
+	height: 80px;
+	clear:both
 }
 
 .welcome{
@@ -21,28 +18,128 @@ header{
 
 }
 
-nav{
-
+/*header */
+header{
+	height:80px;
+	background-color: #F5F4D7;
+	width: 100%;
 }
 
-nav ul{
-	list-style: none;
-	padding: 0;
-	margin: 0;	
-	border: 2px solid teal;
-}
-
-nav ul li{
+header .logo{
 	float: left;
-	width: 16.66%;
-	text-align: center;
 }
 
-nav ul li a{
-	padding: 10px;
-	display: block;
-	border-right: 4px solid white;
+header h1{
+	float: left;
+	color: black;
+}
+
+header nav{
+	float: right;
+	clear: both;
+	margin-top: -60px;
+}
+
+header nav li{
+	list-style: none;
+	display: inline-block;
+	text-align: center;
+	width: 16.66%;
+
+}
+
+header nav li a{
+	background: #7A7E5F;
 	color: white;
 	text-decoration: none;
+	padding: 10px;
 }
+
+.btn-main:hover{
+	background: #384030;
+}
+
+.btn-main {
+	width: 150px;
+	padding: 10px;
+	text-align: center;
+	text-decoration: none;
+	background: #015B7E;
+	color: white;
+	border: 0;
+	margin: 0 10px 0 0;
+}
+
+/*log in */
+
+#wrapper{
+  width: 100%;
+  height: 100%;
+  margin: 20px 0 40px 0;
+}  
+
+#box{
+  width: 320px;
+  height: auto;
+  margin: 0 auto;
+  background: #F5F4D7;
+  border: thin solid #ededed;
+}
+#box > img{
+  width: 16px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  padding: 30px 0 20px 0;
+}
+#box > h3{
+  text-transform: uppercase;
+  text-align: center;
+  font-size: .9em;
+  color: $gray;
+  margin: 0 0 35px 0;
+ } 
+#box > form{
+  width: 100%;
+  height: auo;
+  margin: 0 auto;
+  text-align: center;
+}
+#box > form > input{
+  display: inline-block;
+  width: 260px;
+  height: 50px;
+  margin: 5px auto;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: .8em;
+  border: 1.5px solid #cccccc;
+  transition: all .2s ease;
+}
+#box > form > input:focus{
+  border: thin solid #015b7e;
+  outline: none;
+}
+
+::-webkit-input-placeholder{
+  color: $light-gray;
+  font-weight: 700;
+  font-size: .9em;
+}
+
+#submit{
+	background: #015B7E;
+	color: #fff;
+	text-align: center;
+  margin-bottom: 20px;
+  border-radius: 3px;
+}
+
+#submit:hover{
+	background: #384030;
+}
+
+/**/
+
+/**/
 
