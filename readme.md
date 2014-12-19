@@ -1,45 +1,34 @@
-
-Models and attributes:
+Technologies Used:
+Ruby 2.1.2
+Sinatra
+HTML
+CSS
+Java Script
+PSQL
+Active Record
+BCrypt
+Heroku
 
 Users:
-•	name
-•	email
-•	password
-•	phone number
-Meals:
-•	user_id
-•	description
-•	can_feed
-•	pickup_time
-•	pickup_location
+Sign up with Name, Phone #, Email, Password
+CRUD Meal
+CRUD Canned Goods
+CRUD Greeting
+Logout
+Upon Submitting M,C, or G they can navigate to TY page
 
 Associations:
 Users:
-•	Have many meals
-Meals:
-•	Belong to user
+Have many meals
+Meals/Cans/Greeting
+Belongs to user
 
-Views:
-1. Homepage (get)
-Links to sign up, log in, Info about project
+To Install:
+rake db:create
+rake db:migrate
 
-2. Sign up page (get, post)
-Form containing fields for name, email, phone #, password, password confirmation
-Redirect to user dashboard
-
-3. Log in page (get, post)
-Form containing fields for email, password
-Redirect to user dashboard.
-
-4. User dashboard (get)
-Lists of all past meals and posts Links to post new meal Link to log out
-
-5. Meal form (get, post)
-Form containing fields for title, description
-Redirect to homepage
-
-6. Thank You Page (get)
-Present animation
-
-7. Logout page
-Redirect to homepage
+To Do:
+(Fri/Sat) Add Page that shows all submissions
+(Fri/Sat) Add footer that links to Giving Credit/ Social Media
+(Saturday) Refactor >> ∞
+Add Reflection Page(Blog Style)
