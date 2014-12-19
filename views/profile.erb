@@ -28,35 +28,51 @@
 </table>
 <h4><a href='/meal/create'>Make New Meal Donation</a></h4>
 
-<div class ="usercans">
-<div class = "table_title">Can Donation Commitment:</div>
-	<% @user_cans.each do |c| %>
-	<div class ="can">
-		<%= c.num_cans %>
-		<%= c.container %>
-		<%= c.pickup_time %>
-		<%= c.pickup_location %>
-		<a href="/cannedfood/update/<%=c.id%>">Update Donation</a>
-		<a href="/cannnedfood/delete/">Delete Can Donation</a> 
-	</div>
-	<% end %>
-</div>
-
-<!-- edit -->
+<table class="flat-table flat-table-1">
+	<div class = "table_title">Commited to make these Meals:</div>
+	<thead>
+		<th># of Cans</th>
+		<th>Have a Container</th>
+		<th>Pickup Time</th>
+		<th>Pickup Location</th>
+		<th>Update Meal</th>
+		<th>Delete Meal</th>
+	</thead>
+	<tbody>
+		<% @user_cans.each do |c| %>
+		<tr>
+			<td><%= c.num_cans %></td>
+			<td><%= c.container %></td>
+			<td><%= c.pickup_time %></td>
+			<td><%= c.pickup_location %></td>
+			<td><a href="/cannedfood/update/<%=c.id%>">Update Donation</a></td>
+			<td><a href="/cannnedfood/delete/">Delete Can Donation</a></td>
+		</tr>
+		<%end%>
+	</tbody>
+</table>
 <h4><a href='/cannedfood/create'>Make New Can Donation</a></h4>
 
-<div class ="usergreetings">
-<div class = "table_title">Greetings Composed:</div>
-<% @user_greetings.each do |g| %>
-	<div class ="greeting">
-		<%= g.body %>
-		<a href="/greeting/update/<%=g.id%>">Update Greeting</a> 
-		<a href="/greeting/delete">Delete Greeting</a>
-	</div>
-	<% end %>
-	</div>
-	<h4><a href="/greeting/create">Compose a Holiday Greeting</a></h4>
-</div>
-<!-- edit -->
-
+<table class="flat-table flat-table-1">
+	<div class = "table_title">Greetings Composed:</div>
+	<thead>
+		<th>Greeting</th>
+		<th>Update Greeting</th>
+		<th>Delete Greeting</th>
+	</thead>
+	<tbody>
+		<% @user_greetings.each do |g| %>
+		<tr>
+			<div class ="can">
+			<td><%= c.num_cans %></td>
+			<td><%= c.container %></td>
+			<td><%= c.pickup_time %></td>
+			<td><%= c.pickup_location %></td>
+			<td><a href="/greeting/update/<%=g.id%>">Update</a></td>
+			<td><a href="/greeting/delete">Delete</a></td>
+		</tr>
+		<%end%>
+	</tbody>
+</table>
+<h4><a href='/greeting/create'>Make New Can Donation</a></h4>
 </div>

@@ -1,6 +1,5 @@
 body {
 	background-color: #A22C27;
-	border: 2px solid green;
 	font-family: 'Open Sans', sans-serif;
 }
 
@@ -15,6 +14,7 @@ header{
 	height:80px;
 	background-color: #F5F4D7;
 	width: 100%;
+	margin-top: 20px;
 }
 
 header .logo{
@@ -61,7 +61,7 @@ header nav li a{
 	background: #015B7E;
 	color: white;
 	border: 0;
-	margin: 0 10px 0 0;
+	margin: 0 20px 0 0;
 }
 
 /*log in */
@@ -230,3 +230,25 @@ h4 a:hover{
 		background-color: #A22C27;
 		color: #F5F4D7;
 	}
+
+	/*Profile/thankyou*/
+.click_me {
+	font-family: 'Playfair Display', serif;
+	border: 3px solid #F0D890;
+	background-color: #384030;
+	width: 200px;
+	font-size: 26px;
+	margin-bottom: 40px;
+	text-align: center;
+	margin-left: 40%;
+}
+
+.click_me a{
+	text-decoration: none;
+	color: #E34437;
+}
+
+.click_me img{
+	height:70px;
+	width:70px;
+}
