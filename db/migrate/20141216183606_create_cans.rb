@@ -3,7 +3,7 @@ class CreateCans < ActiveRecord::Migration
   	create_table :cans do |t|
   	  t.integer :num_cans, null: false
   	  t.string :container, null: false
-  	  t.datetime :pickup_time
+  	  t.string :pickup_time
   	  t.string :pickup_location, null: false
   	  t.belongs_to :user, null:false
   	end 

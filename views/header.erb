@@ -6,8 +6,8 @@
 	<h1>Nourished Neighbors</h1>
 	</div>
 	<nav>
-		<%if current_user? %>
-			<a class="btn-main" href="/signin">Sign in</a>
+		<%if !@current_user == true %>
+			<a class="btn-main" href="/login">Sign in</a>
 			<a class="btn-main" href="/signup">Create an account</a>
 		<% else %>
 			<!-- buttons change if logged in -->

@@ -1,52 +1,62 @@
-<link rel="stylesheet" type="text/css" href="../css/index.css" />
-
+<%= erb(:header, :layout => false) %>
+<link type="text/css" rel="stylesheet" href="/css/styles.css">
+<div class="profile_content">
 <div class= "welcome"><h2>Welcome and Happy Holidays, <%= current_user.name%>! </h2></div>
 
-<div class ="usermeals">
-	<div class="createmeal">
-		<h2><a href='/meal/create'>Submit A Meal</a></h2>
-	</div>
-<h2>Previously Submitted Meals: </h2>
-	<% @user_meals.each do |m| %>
-	<div class ="meal">
-		<%= m.name %>
-		<%= m.will_feed %>
-		<%= m.pickup_time %>
-		<%= m.pickup_location %>
-		<a href="/meal/update/<%=m.id%>">Update Meal Donation</a> 
-		<a href="/meal/delete">Delete Meal Donation</a>
-	</div>
-	<% end %>
-</div>
+<table class="flat-table flat-table-1">
+	<div class = "table_title">Commited to make these Meals:</div>
+	<thead>
+		<th>Meal Name</th>
+		<th>It will feed</th>
+		<th>Pickup Time</th>
+		<th>Pickup Location</th>
+		<th>Update Meal</th>
+		<th>Delete Meal</th>
+	</thead>
+	<tbody>
+		<% @user_meals.each do |m| %>
+		<tr>
+			<td><%= m.name %></td>
+			<td><%= m.will_feed %></td>
+			<td><%= m.pickup_time%></td>
+			<td><%= m.pickup_location %></td>
+			<td><a href="/meal/update/<%=m.id%>">Update</a></td>
+			<td><a href="/meal/delete">Delete</a></td>
+		</tr>
+		<%end%>
+	</tbody>
+</table>
+<h4><a href='/meal/create'>Make New Meal Donation</a></h4>
 
 <div class ="usercans">
-	<div class="createcan">
-		<h2><a href='/cannedfood/create'>Make New Can Donation</a></h2>
-	</div>
-<h2>Previous Can Donations:</h2>
+<div class = "table_title">Can Donation Commitment:</div>
 	<% @user_cans.each do |c| %>
 	<div class ="can">
 		<%= c.num_cans %>
 		<%= c.container %>
 		<%= c.pickup_time %>
 		<%= c.pickup_location %>
-		<%= c.id %>
 		<a href="/cannedfood/update/<%=c.id%>">Update Donation</a>
 		<a href="/cannnedfood/delete/">Delete Can Donation</a> 
 	</div>
 	<% end %>
 </div>
 
+<!-- edit -->
+<h4><a href='/cannedfood/create'>Make New Can Donation</a></h4>
+
 <div class ="usergreetings">
-	<div class="createmeal">
-		<h2><a href="/greeting/create">Compose a Holiday Greeting</a></h2>
-	</div>
-<h2>Greetings Submitted:</h2>
+<div class = "table_title">Greetings Composed:</div>
 <% @user_greetings.each do |g| %>
 	<div class ="greeting">
 		<%= g.body %>
 		<a href="/greeting/update/<%=g.id%>">Update Greeting</a> 
-		<a href="/greeting/update">Delete Greeting</a>
+		<a href="/greeting/delete">Delete Greeting</a>
 	</div>
 	<% end %>
+	</div>
+	<h4><a href="/greeting/create">Compose a Holiday Greeting</a></h4>
+</div>
+<!-- edit -->
+
 </div>

@@ -3,7 +3,7 @@ class CreateMeals < ActiveRecord::Migration
   	create_table :meals do |t|
   	  t.string :name, null: false
   	  t.integer :will_feed, null: false
-  	  t.datetime :pickup_time
+  	  t.string :pickup_time
   	  t.string :pickup_location, null: false
   	  t.belongs_to :user, null:false
   	end 

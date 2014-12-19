@@ -17,11 +17,11 @@ ActiveRecord::Schema.define(version: 20141216183629) do
   enable_extension "plpgsql"
 
   create_table "cans", force: true do |t|
-    t.integer  "num_cans",        null: false
-    t.string   "container",       null: false
-    t.datetime "pickup_time"
-    t.string   "pickup_location", null: false
-    t.integer  "user_id",         null: false
+    t.integer "num_cans",        null: false
+    t.string  "container",       null: false
+    t.string  "pickup_time"
+    t.string  "pickup_location", null: false
+    t.integer "user_id",         null: false
   end
 
   create_table "greetings", force: true do |t|
@@ -30,11 +30,11 @@ ActiveRecord::Schema.define(version: 20141216183629) do
   end
 
   create_table "meals", force: true do |t|
-    t.string   "name",            null: false
-    t.integer  "will_feed",       null: false
-    t.datetime "pickup_time"
-    t.string   "pickup_location", null: false
-    t.integer  "user_id",         null: false
+    t.string  "name",            null: false
+    t.integer "will_feed",       null: false
+    t.string  "pickup_time"
+    t.string  "pickup_location", null: false
+    t.integer "user_id",         null: false
   end
 
   create_table "users", force: true do |t|
