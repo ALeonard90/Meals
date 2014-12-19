@@ -64,6 +64,29 @@ header nav li a{
 	margin: 0 20px 0 0;
 }
 
+/*Landing Page*/
+.landing_page{
+display: inline-block;
+}
+
+.landing_page h2{
+	margin-top: -20px;
+	font-size: 40px;
+	font-family: 'Playfair Display', serif;
+	text-align: center;
+	color: #F5F4D7;
+}
+
+.nourished{
+margin: 40px 50px 20px 50px;
+/*color: #F5F4D7;*/
+font-weight: lighter;
+font-family: 'Open Sans', sans-serif;
+font-size: 20px;
+}
+
+
+
 /*log in */
 
 #wrapper{
@@ -73,7 +96,7 @@ header nav li a{
 }  
 
 #box{
-  width: 320px;
+  width: 375px;
   height: auto;
   margin: 0 auto;
   background: #F5F4D7;
@@ -98,7 +121,7 @@ header nav li a{
 #box > h3{
   text-transform: uppercase;
   text-align: center;
-  font-size: 1em;
+  font-size: .9em;
   color: $gray;
   margin: 0 0 35px 0;
 } 
@@ -132,8 +155,8 @@ header nav li a{
 }
 
 #submit{
-	background: #015B7E;
-	color: #fff;
+	background: #7A7E5F;
+	color: white;
 	text-align: center;
   margin-bottom: 20px;
   border-radius: 3px;
@@ -141,6 +164,10 @@ header nav li a{
 
 #submit:hover{
 	background: #A7BA59;
+}
+
+#box > label{
+	margin-bottom: 3px;
 }
 
 /*Profile View*/
@@ -151,19 +178,21 @@ header nav li a{
 	padding-bottom: 10px;
 	font-size: 30px;
 	font-family: 'Playfair Display', serif;
+	margin-top: -25px;
 }
 
 h4 a{
-	border: 2px solid #F5F4D7;
-	background-color: #A7BA59;
-	color: #F5F4D7;
+	border: 2px solid #FFEFB9;
+	background-color: #34502B;
+	color: #FFEFB9;
 	text-decoration: none;
 	font-size: 13px;
 	padding: 4px;
 }
 
 h4 a:hover{
-	background-color: #015B7E;
+	background-color: #F9C800;
+	color: #5290A4;
 }
 
 .profile_content{
@@ -176,14 +205,14 @@ h4 a:hover{
 .table_title{
 	margin-bottom: 10px;
 	color: #E0DFB1;
-	font-size: 17px;
+	font-size: 18px;
 }
 
 .flat-table {
 		margin-bottom: 20px;
 		border-collapse:collapse;
 		width: 60%;
-		font-family: 'Lato', Calibri, Arial, sans-serif;
+		font-family: 'Open Sans', sans-serif;
 		border: none;
                 border-radius: 3px;
                -webkit-border-radius: 3px;
@@ -200,13 +229,13 @@ h4 a:hover{
 		padding: .3em;
 		color: rgba(0,0,0,0.45);
 		text-shadow: 0 0 1px rgba(0,0,0,0.1);
-		font-size: 1em;
+		font-size: .9em;
 	}
 	.flat-table td {
 		color: #f7f7f7;
 		padding: 0.7em 1em 0.7em 1.15em;
 		text-shadow: 0 0 1px rgba(255,255,255,0.1);
-		font-size: 1em;
+		font-size: .9em;
 	}
 	.flat-table tr {
 		-webkit-transition: background 0.3s, box-shadow 0.3s;
@@ -219,10 +248,10 @@ h4 a:hover{
 
 	.flat-table a{
 		text-decoration: none;
-		color: #F5F4D7;
+		color: #F9C800;
 		padding: 1px;
 		border: 2px solid #F5F4D7;
-		background-color: #A7BA59;
+		background-color: #34502B;
 		margin-left: 3px
 	}
 

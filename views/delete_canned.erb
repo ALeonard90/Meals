@@ -1,10 +1,14 @@
-<h2> Deleting your canned donation will leave your neighbors malnourished </h2>
-
-<form action="/cannedfood/delete" method="post">
-	<input type="hidden" name="_method"  value="delete" >
-	<input type="hidden" value="<%= @can_to_delete.id %>" name="can_to_delete_id">
-	<input type="submit" value="Delete :(">
-</form>
+<%= erb(:header, :layout => false) %>
+<link type="text/css" rel="stylesheet" href="/css/styles.css">
+<center><div id="bag"><img src="http://i.imgur.com/8wtpSqu.png" alt="bag"/></div></center>
+<h3> Deleting your canned donation will leave your neighbors malnourished </h3>
+<div class="wrapper">
+  <div id="box">
+	<form action="/cannedfood/delete/:can_id" method="post">
+		<input type="hidden" name="_method"  value="delete" >
+		<input type="hidden" value="<%= @can_to_delete.id %>" name="can_to_delete_id">
+		<input id="submit" type="submit" value="Delete :("/>
+	</form>
+</div>
+</div>
 <a href="/profile/thankyou">Cancel :D </a>
-
-

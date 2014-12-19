@@ -3,11 +3,11 @@ html, body, .container {
 }
 
 body {
-	background: #A22C27 url(../img/winterforest.png) repeat-x bottom center;
+	background: #A22C27 url(http://i.imgur.com/c68rHZ9.png) repeat-x bottom center;
 	overflow: hidden;
 }
 
-h1 {
+title {
 	position: absolute;
 	bottom: 10px;
 	right: 15px;

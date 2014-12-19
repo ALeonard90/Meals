@@ -23,15 +23,15 @@
 			<td><%= m.pickup_time%></td>
 			<td><%= m.pickup_location %></td>
 			<td><a href="/meal/update/<%=m.id%>">Update</a></td>
-			<td><a href="/meal/delete">Delete</a></td>
+			<td><a href="/meal/delete/<%=m.id%>">Delete</a></td>
 		</tr>
 		<%end%>
 	</tbody>
 </table>
-<h4><a href='/meal/create'>Make New Meal Donation</a></h4>
+<h4><a href='/meal/create'>New Meal Donation</a></h4>
 
 <table class="flat-table flat-table-1">
-	<div class = "table_title">Commited to make these Meals:</div>
+	<div class = "table_title">Commited to make this Can Donation:</div>
 	<thead>
 		<th># of Cans</th>
 		<th>Have a Container</th>
@@ -48,12 +48,12 @@
 			<td><%= c.pickup_time %></td>
 			<td><%= c.pickup_location %></td>
 			<td><a href="/cannedfood/update/<%=c.id%>">Update Donation</a></td>
-			<td><a href="/cannnedfood/delete/">Delete Can Donation</a></td>
+			<td><a href="/cannnedfood/delete/<%=c.id%>">Delete Can Donation</a></td>
 		</tr>
 		<%end%>
 	</tbody>
 </table>
-<h4><a href='/cannedfood/create'>Make New Can Donation</a></h4>
+<h4><a href='/cannedfood/create'>New Can Donation</a></h4>
 
 <table class="flat-table flat-table-1">
 	<div class = "table_title">Greetings Composed:</div>
@@ -71,10 +71,10 @@
 			<td><%= c.pickup_time %></td>
 			<td><%= c.pickup_location %></td>
 			<td><a href="/greeting/update/<%=g.id%>">Update</a></td>
-			<td><a href="/greeting/delete">Delete</a></td>
+			<td><a href="/greeting/delete/<%=g.id%>">Delete</a></td>
 		</tr>
 		<%end%>
 	</tbody>
 </table>
-<h4><a href='/greeting/create'>Make New Can Donation</a></h4>
+<h4><a href='/greeting/create'>Compose New Greeting</a></h4>
 </div>

@@ -1,9 +1,14 @@
-<form action="/greeting/update/<%= @greeting_to_edit.id %>" method="post">
-<input type="hidden" name="_method" value="put">
-
-  <label>What would you like to say?:</label>
-  <input class= "submission" type="text" name="body" placeholder="">
-
-  <input type="submit" value="Submit Greeting">
-</form>
+<%= erb(:header, :layout => false) %>
+<link type="text/css" rel="stylesheet" href="/css/styles.css">
+<div class="wrapper">
+  <div id="box">
+    <center><div id="card"><img src="http://i.imgur.com/PUAuD96.png" alt="card"/></div></center>
+		<form action="/greeting/update/<%= @greeting_to_edit.id %>" method="post">
+			<input type="hidden" name="_method" value="put">
+			<p>What would you like to say?:</p>
+  			<input class= "submission" type="text" name="body" placeholder="">
+  			<input type="submit" value="Submit Greeting">
+		</form>
+	</div>
+</div>
 <a href="/profile/thankyou">Cancel</a>

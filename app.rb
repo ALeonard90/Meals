@@ -10,6 +10,11 @@ require_relative './config/environments'
 
 enable :sessions
 
+before do
+  @errors ||= []
+  @current_user = User.find_by(:id => session[:user_id])
+end
+
 helpers do
   def current_user
     @current_user || nil
@@ -18,12 +23,12 @@ helpers do
   def current_user?
     @current_user == nil ? false : true
   end
-end
 
-before do
-  @errors ||= []
-  @current_user = User.find_by(:id => session[:user_id])
-end
+  def require_login
+    @logged_in = current_?
+    redirect('/') if !@logged_in
+    end
+  end
 
 get '/' do 
 	erb :index
@@ -71,7 +76,6 @@ get '/profile' do
     end
 end
 
-# Needs security
 get '/meal/create' do
   erb :create_meal
 end
@@ -108,7 +112,6 @@ delete '/meal/delete/:meal_id' do
   redirect('/profile/thankyou') 
 end
 
-
 # Needs security
 get '/cannedfood/create' do
   erb :create_canned
@@ -144,7 +147,7 @@ get '/cannedfood/delete/:can_id' do
 end
 
 delete '/cannedfood/delete/:can_id' do
-  @can = Can.find(params["can_id"])
+  @can_to_delete = Can.find(params["can_id"])
   @can_to_delete.delete
   redirect('/profile/thankyou')
 end
@@ -159,6 +162,7 @@ end
 
 # Needs security
 post '/greeting/create' do
+  user = User.find(session[:user_id])
   greeting = Greeting.create(body: params["body"], user_id: user.id)
   redirect('/profile/thankyou')
 end 
