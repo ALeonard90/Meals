@@ -202,6 +202,13 @@ get '/profile/thankyou' do
   end
 end
 
+get '/view/donations' do
+  @cans = Can.all
+  @greetings = Greeting.all
+  @meals = Meal.all
+erb :donations
+end 
+
 get '/thankyou' do
   if current_user?
     erb :thankyou
