@@ -4,11 +4,11 @@
   <div id="box">
     <center><div id="card"><img src="http://i.imgur.com/PUAuD96.png" alt="card"/></div></center>
 		<h3> Deleting your canned donation will leave your neighbors soul malnourished </h3>
-		<form action='/greeting/delete/:greeting_id>' method='post'>
+		<form action='/greeting/delete/<%= @greeting_to_delete.id%>>' method='post'>
 			<input type="hidden" name="_method" value="delete">
 			<input type="hidden" value="<%= @greeting_to_delete.id %>" name="greeting_to_delete_id">
 			<input id="submit" type="submit" value="Delete :("/>
 		</form>
 	</div>
-</div
+</div>
 <a href="/profile/thankyou">Cancel :D </a>

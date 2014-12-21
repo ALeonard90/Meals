@@ -158,8 +158,8 @@ font-size: 20px;
 	background: #7A7E5F;
 	color: white;
 	text-align: center;
-  margin-bottom: 20px;
-  border-radius: 3px;
+  	margin-bottom: 20px;
+  	border-radius: 3px;
 }
 
 #submit:hover{
@@ -257,7 +257,7 @@ h4 a:hover{
 		color: #F5F4D7;
 	}
 
-	/*Profile/thankyou*/
+/*Profile/thankyou*/
 .click_me {
 	font-family: 'Playfair Display', serif;
 	border: 3px solid #F0D890;

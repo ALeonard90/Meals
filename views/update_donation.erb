@@ -2,9 +2,9 @@
 <link type="text/css" rel="stylesheet" href="/css/styles.css">
 <div class="wrapper">
   <div id="box">
-    <center><div id="bag"><img src="http://i.imgur.com/8wtpSqu.png" alt="bag"/></div></center>
-    <h3> Update Canned Donation: </h3>
-      <form action="/cannedfood/update/<%= @can_to_edit.id %>" method="post">
+    <center><div id="donation"><img src="http://i.imgur.com/9yswaT7.png" alt="cart"/></div></center>
+		<h3> Make Changes to Your Donation: </h3>
+      	<form action="/donation/update/<%= @donation_to_edit.id %>" method="post">
         <input type="hidden" name="_method" value= "put">
         <p>How many canned goods are you willing to part with? :</p>
         <input type="integer" name="edited_num_cans" placeholder="<%=@can_to_edit.num_cans%>">

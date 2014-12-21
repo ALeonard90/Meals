@@ -6,7 +6,9 @@ require_relative './models/user'
 require_relative './models/meal'
 require_relative './models/greeting'
 require_relative './models/can'
+require_relative './models/donation'
 require_relative './config/environments'
+
 
 enable :sessions
 
@@ -23,12 +25,7 @@ helpers do
   def current_user?
     @current_user == nil ? false : true
   end
-
-  def require_login
-    @logged_in = current_?
-    redirect('/') if !@logged_in
-    end
-  end
+end 
 
 get '/' do 
 	erb :index
@@ -69,6 +66,7 @@ get '/profile' do
   @user_meals = Meal.where(user_id: session[:user_id])
   @user_cans = Can.where(user_id: session[:user_id])
   @user_greetings = Greeting.where(user_id: session[:user_id])
+  @user_donations = Donation.where(user_id: session[:user_id])
     if current_user?
       erb :profile
     else
@@ -153,11 +151,7 @@ delete '/cannedfood/delete/:can_id' do
 end
 
 get '/greeting/create' do
-  if current_user?
     erb :create_greeting
-  else
-    redirect('/login')
-  end
 end 
 
 # Needs security
@@ -175,6 +169,7 @@ end
 put 'greeting/update/:greeting_id' do
   @greeting_to_edit = Greeting.find(params["greeting_id"])
   @greeting_to_edit = params[:body]
+  @greeting_to_edit.save
   redirect('/profile/thankyou')
 end
 
@@ -185,8 +180,33 @@ end
 
 delete 'greeting/delete/' do
   @greeting_to_delete = Greeting.find(params["greeting_id"])
-  @greeting_to_delete.destroy
-  
+  @greeting_to_delete.delete
+  redirect('/profile/thankyou')
+end
+
+#Misc.
+get '/donation/create' do
+    erb :create_donation
+end 
+
+# Needs security
+post '/donation/create' do
+  user = User.find(session[:user_id])
+  donation = Donation.create(body: params["body"], pickup_time: params["pickup_time"], pickup_location: params["pickup_location"], user_id: user.id)
+  redirect('/profile/thankyou')
+end 
+
+get 'donation/update/:donation_id' do
+  @donation_to_edit = Donation.find(params["donation_id"])
+  erb :update_donation
+end
+
+put 'donation/update/:donation_id' do
+  @donation_to_edit = Donation.find(params["donation_id"])
+  @donation_to_edit = params[:body]
+  @donation_to_edit.pickup_time = params[:pickup_time]
+  @donation_to_edit.pickup_location = params[:pickup_location]
+  @donation_to_edit.save
   redirect('/profile/thankyou')
 end
 
@@ -194,6 +214,7 @@ get '/profile/thankyou' do
   @user_meals = Meal.where(user_id: session[:user_id])
   @user_cans = Can.where(user_id: session[:user_id])
   @user_greetings = Greeting.where(user_id: session[:user_id])
+  @user_donations = Donation.where(user_id: session[:user_id])
 
   if current_user?
     erb :profty
@@ -206,7 +227,8 @@ get '/view/donations' do
   @cans = Can.all
   @greetings = Greeting.all
   @meals = Meal.all
-erb :donations
+  @donations = Donation.all
+erb :alldonations
 end 
 
 get '/thankyou' do

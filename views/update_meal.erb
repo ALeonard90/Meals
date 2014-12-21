@@ -11,8 +11,8 @@
     <p>How many people will your meal feed?:</p>
     <input type="integer" name="edited_will_feed" placeholder="<%=@meal_to_edit.will_feed%>" required>
     <p> Pickup Time:</p>
-    <input type="text" name="pickup_time">
-	 <p>Pickup Location:</p>
+    <input type="text" name="edited_pickup_time" placeholder "<%=@meal_to_edit.pickup_time%>">
+	   <p>Pickup Location:</p>
     <input type="text" name="edited_pickup_location" placeholder="<%=@meal_to_edit.pickup_location%>">
    <input id="submit" type="submit" value="Update!"/>
   </form>

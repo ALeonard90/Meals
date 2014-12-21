@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
 	has_many :meals
   has_many :cans
   has_many :greetings
+  has_many :miscs
 
 	# methods
 	def authenticate(password)

@@ -11,7 +11,7 @@
 		<th>Pickup Time</th>
 		<th>Pickup Location</th>
 		<th>Update Meal</th>
-		<th>Delete Meal</th>
+		<!-- <th>Delete Meal</th> -->
 	</thead>
 	<tbody>
 		<% @user_meals.each do |m| %>
@@ -21,7 +21,7 @@
 			<td><%= m.pickup_time%></td>
 			<td><%= m.pickup_location %></td>
 			<td><a href="/meal/update/<%=m.id%>">Update</a></td>
-			<td><a href="/meal/delete/<%=m.id%>">Delete</a></td>
+			<!-- <td><a href="/meal/delete/<%=m.id%>">Delete</a></td> -->
 		</tr>
 		<%end%>
 	</tbody>
@@ -36,7 +36,7 @@
 		<th>Pickup Time</th>
 		<th>Pickup Location</th>
 		<th>Update Meal</th>
-		<th>Delete Meal</th>
+		<!-- <th>Delete Meal</th> -->
 	</thead>
 	<tbody>
 		<% @user_cans.each do |c| %>
@@ -54,22 +54,42 @@
 <h4><a href='/cannedfood/create'>Make New Can Donation</a></h4>
 
 <table class="flat-table flat-table-1">
+	<div class = "table_title">Miscellaneous Donations:</div>
+	<thead>
+		<th>Donation</th>
+		<th>Pickup Location</th>
+		<th>Pickup Location</th>
+		<th>Update Donation</th>
+		<!-- <th>Delete Donation</th> -->
+	</thead>
+	<tbody>
+		<% @user_donations.each do |donation| %>
+		<tr>
+			<td><%= donation.body %></td>
+			<td><%= donation.pickup_time %></td>
+			<td><%= donation.pickup_location %></td>
+			<!-- <td><a href="/donation/update/<%=donation.id%>">Update</a></td> -->
+			<!-- <td><a href="/donation/delete/<%=donation.id%>">Delete</a></td> -->
+		</tr>
+		<%end%>
+	</tbody>
+</table>
+<h4><a href='/donation/create'>Make Other Donation</a></h4>
+
+<table class="flat-table flat-table-1">
 	<div class = "table_title">Greetings Composed:</div>
 	<thead>
 		<th>Greeting</th>
 		<th>Update Greeting</th>
-		<th>Delete Greeting</th>
+		<!-- <th>Delete Greeting</th> -->
 	</thead>
 	<tbody>
 		<% @user_greetings.each do |g| %>
 		<tr>
 			<div class ="can">
-			<td><%= c.num_cans %></td>
-			<td><%= c.container %></td>
-			<td><%= c.pickup_time %></td>
-			<td><%= c.pickup_location %></td>
+			<td><%= g.body %></td>
 			<td><a href="/greeting/update/<%=g.id%>">Update</a></td>
-			<td><a href="/greeting/delete/<%=g.id%>">Delete</a></td>
+			<!-- <td><a href="/greeting/delete/<%=g.id%>">Delete</a></td> -->
 		</tr>
 		<%end%>
 	</tbody>
